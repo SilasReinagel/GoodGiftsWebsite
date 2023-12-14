@@ -12,7 +12,7 @@
     <div class="logo-img">
       <img src={company.logo} alt="Logo"/>
     </div>
-    <h1>{company.name}</h1>
+    <!-- <h1>{company.name}</h1> -->
   </a>
   <SiteSidebar bind:open={sidebarOpen}/>
   <nav class="navbar tablet-hidden">
@@ -43,11 +43,11 @@
   .logo {
     display: flex;
     flex-direction: row;
-    max-height: 92px;
+    max-height: 120px;
   }
 
   .logo-img {
-    width: 48px;
+    width: 120px;
   }
 
   .navlink {

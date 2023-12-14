@@ -8,9 +8,9 @@ html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:b
   --primary-color-hover: #433740;
   --primary-color-press: #4e444c;
   --primary-background-color: #f3eede;
-  --secondary-color: #29C4F8;
-  --secondary-color-hover: #3CD2F9;
-  --secondary-color-press: #4AF3F8;
+  --secondary-color: #f3eede;
+  --secondary-color-hover: #f3eede;
+  --secondary-color-press: #f3eede;
   --alternate-color:#00dce8;
   --alternate-background-color: #17111a;
   --alternate-color-light:#00dce8;
@@ -145,6 +145,7 @@ img {
 .mt4 { margin-top: 4em; }
 .mb1 { margin-bottom: 1em; }
 .mb2 { margin-bottom: 2em; }
+.mb6 { margin-bottom: 6em; }
 
 .pt2 { padding-top: 2em; }
 .pt4 { padding-top: 4em; }

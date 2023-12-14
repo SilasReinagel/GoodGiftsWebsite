@@ -1,16 +1,7 @@
 <script>
-  import Container from '../Elements/Container.svelte';
-
+  import Features from '../Sections/Features.svelte';
+import Hero from '../Sections/Hero.svelte';
 </script>
 
-<Container>
-  <section>
-    <h1>Home</h1>
-  </section>
-</Container>
-
-<style>
-  section {
-    padding: 1em;
-  }
-</style>
+<Hero />
+<Features />
