@@ -20,7 +20,7 @@
     align-items: center;
     align-content: center;
     flex-direction: column;
-    height: 100vh;
+    height: calc(100vh - 160px);
     background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)), url('/hero2.webp');
     background-size: cover;
     background-position: center;
@@ -41,7 +41,7 @@
     padding: 1rem 2rem;
     font-size: 1.5rem;
     color: #fff;
-    background-color: #e63946;
+    background-color: var(--alternate-color);
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -50,7 +50,7 @@
   }
 
   .hero-cta:hover {
-    background-color: #dc2f35;
+    background-color: var(--alternate-color-light);
   }
 
   .width-limit {

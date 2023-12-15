@@ -8,18 +8,20 @@
 </script>
 
 <header>
-  <a href="." class="logo">
-    <div class="logo-img">
-      <img src={company.logo} alt="Logo"/>
-    </div>
-    <!-- <h1>{company.name}</h1> -->
-  </a>
+  <div class="column">
+    <a href="." class="logo mb1">
+      <div class="logo-img">
+        <img src={company.logo} alt="Logo"/>
+      </div>
+      <!-- <h1>{company.name}</h1> -->
+    </a>
+    <nav class="navbar tablet-hidden">
+      {#each pages as page}
+        <a class="navlink decor-font" href={page.href}>{page.name}</a>
+      {/each}
+    </nav>
+  </div>
   <SiteSidebar bind:open={sidebarOpen}/>
-  <nav class="navbar tablet-hidden">
-    {#each pages as page}
-      <a class="navlink decor-font" href={page.href}>{page.name}</a>
-    {/each}
-  </nav>
   <HamburgerIcon bind:open={sidebarOpen}/>
 </header>
 
@@ -31,8 +33,15 @@
     align-items: center;
     align-content: center;
     background-color: var(--header-background-color);
-    height: 82px;
-    padding: 0 16px;
+    height: 160px;
+    padding: 0 0 16px 0;
+  }
+
+  .column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
   }
 
   h1 {
@@ -43,11 +52,11 @@
   .logo {
     display: flex;
     flex-direction: row;
-    max-height: 120px;
+    max-height: 100px;
   }
 
   .logo-img {
-    width: 120px;
+    width: 100px;
   }
 
   .navlink {

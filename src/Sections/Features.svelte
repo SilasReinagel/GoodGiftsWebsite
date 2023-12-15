@@ -31,34 +31,34 @@
   }
 
   .image-container {
-    background-image: url('/hero4.jpg');
+    background-image:     
+      linear-gradient(to bottom, rgba(255, 255, 255, 0) 50%, #f3eede 100%), 
+      url('/hero4.jpg');
     background-size: cover;
     background-position: center;
-    flex: 1; /* Takes half the space of the container */
+    height: 50vh;
   }
 
   .benefits-section {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    flex: 1; /* Takes the remaining half */
-    background-color: #f8f8f8; /* Clean background color */
+    background-color: var(--primary-background-color);
     padding: 2rem;
+    height: 50vh;
   }
 
   .benefit-card {
     width: 30%;
     padding: 2rem;
     text-align: center;
-    background: rgba(255, 255, 255, 0.9);
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: 1rem;
   }
 
   .benefit-card h2 {
     margin-top: 0;
-    color: #333;
+    color: var(--alternate-color);
   }
 
   .benefit-card p {

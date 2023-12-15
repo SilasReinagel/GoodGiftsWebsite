@@ -3,13 +3,12 @@
 
   import HamburgerIcon from '../Elements/HamburgerIcon.svelte';
 
-  import company, { pages } from '../static-content';
+  import { pages } from '../static-content';
 </script>
 
 <aside class="border-r-2 shadow-lg" class:open>
   <nav class="navbar">
     <div class="align-right">
-      <h1>{company.name}</h1>
       <HamburgerIcon bind:open/>
     </div>
     {#each pages as page}

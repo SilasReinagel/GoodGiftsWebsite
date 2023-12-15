@@ -8,7 +8,7 @@
 <StandardPageLayout title="Contact Us" headerImg="/images/cafe-01.jpg" headerImgAlt="Cafe">
   <TwoColumnLayout>
     <form class="email-form" name="contact" form-name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" slot='first'>
-      <h2>Contact Us</h2>
+      <h2 class="center">Contact Us</h2>
       <hr/>
       <div hidden aria-hidden="true">
         <label>
@@ -18,7 +18,7 @@
       </div>
       <input type="hidden" name="form-name" value="contact" />
       <input type="text" name="name" placeholder="Your Name"/>
-      <input type="email" name="email" placeholder="Your Email"/>
+      <input type="email" name="email" placeholder="Your Email Address"/>
       <textarea name="message" placeholder="Your Message"/>
       <button type="submit">Send</button>
     </form>
@@ -31,7 +31,7 @@
   }
 
   p {
-    color: var(--alternate-color-light);
+    color: var(--primary-color-light);
     font-size: 1.1em;
     line-height: 1.2em;
   }
@@ -56,7 +56,7 @@
     vertical-align: middle;
     border-bottom: 2px solid #c7a17a;
     margin: 0 0 1.5em 0;
-    width: 120px;
+    width: 100%
   }
 
   input {
@@ -65,7 +65,7 @@
   }
 
   ::placeholder {
-    color: var(--secondary-color);
+    color: var(--primary-color);
     opacity: 1;
   }
 

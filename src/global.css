@@ -11,9 +11,9 @@ html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:b
   --secondary-color: #f3eede;
   --secondary-color-hover: #f3eede;
   --secondary-color-press: #f3eede;
-  --alternate-color:#00dce8;
+  --alternate-color:#cc3e41;
   --alternate-background-color: #17111a;
-  --alternate-color-light:#00dce8;
+  --alternate-color-light:#d0403f;
   --banner-color: #1a1e75;
   --input-background-color: #362438;
   --footer-color: #fff;
@@ -27,13 +27,19 @@ html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:b
 
 @font-face {
   font-family: 'Header';
-  src: url('/fonts/ChocolateDonuts.otf')  format('opentype');
+  src: url('/fonts/PerpetuaTitlingMTStdRegular.otf')  format('opentype');
   font-display: swap;
 }
 
 @font-face {
   font-family: 'Body';
   src: url('/fonts/OpenSans-Regular.ttf')  format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Script';
+  src: url('/fonts/Emillyne.ttf')  format('truetype');
   font-display: swap;
 }
 
