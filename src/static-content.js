@@ -35,6 +35,7 @@ export const products = [
   { id: 2, name: 'Free-Range Natural Duck Eggs (Dozen)', price: 24, imageUrl: '/eggs.jpg', status: 'Available' },
   { id: 3, name: 'Christmas Coffee Blend', price: 18, imageUrl: 'christmascoffee.jpg', status: 'Available' },
   { id: 2, name: 'Limited Edition Christmas Gift Set', price: 92, imageUrl: '/christmasgiftset.jpg', status: 'Available' },
+  { id: 2, name: 'Einkorn Christmas Cookies (6-pack)', price: 24, imageUrl: '/christmascookies.jpg', status: 'Available' },
   { id: 1, name: 'Tick Repellent Spray (2-pack)', price: 38, imageUrl: '/tickspray.jpg', status: 'Available' },
 ]
 

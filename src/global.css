@@ -162,6 +162,11 @@ img {
   padding-right: 0.5em
 }
 
+.px2 {
+  padding-left: 1em;
+  padding-right: 1em
+}
+
 .py4 {
   padding-top: 4em;
   padding-bottom: 4em;
@@ -200,6 +205,10 @@ img {
   .mobile {
     display: block;
   }
+
+  .small-screen-only {
+    display: block !important;
+  }
 }
 
 .tablet {
@@ -223,6 +232,14 @@ img {
   .tablet-hidden {
     display: none !important;
   }
+
+  .small-screen-only {
+    display: block !important;
+  }
+}
+
+.small-screen-only {
+  display: none;
 }
 
 html {

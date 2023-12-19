@@ -7,7 +7,9 @@
   import company, { pages } from '../static-content.js';
 </script>
 
-<header>
+<header class="px2">
+  <div class="icon-spacer small-screen-only">
+  </div>
   <div class="column">
     <a href="." class="logo mb1">
       <div class="logo-img">
@@ -35,6 +37,8 @@
     background-color: var(--header-background-color);
     height: 160px;
     padding: 0 0 16px 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
   .column {
@@ -57,6 +61,11 @@
 
   .logo-img {
     width: 100px;
+  }
+
+  .icon-spacer {
+    min-width: 40px;
+    min-height: 24px;
   }
 
   .navlink {

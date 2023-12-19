@@ -1,4 +1,6 @@
 <script>
+  export let ctaAction;
+
   import Container from '../Elements/Container.svelte';
   import company from '../static-content.js';
 </script>
@@ -7,7 +9,7 @@
   <Container>
     <div class="width-limit">
       <h1 class="hero-title mb6">{company.slogan}</h1>
-      <button class="hero-cta">Embrace Wholesome Goodness</button>
+      <button class="hero-cta" on:click={ctaAction}>Embrace Wholesome Goodness</button>
     </div>
   </Container>
 </div>
@@ -21,6 +23,7 @@
     align-content: center;
     flex-direction: column;
     height: calc(100vh - 160px);
+    min-height: calc(100vh - 160px);
     background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)), url('/hero2.webp');
     background-size: cover;
     background-position: center;

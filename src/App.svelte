@@ -9,7 +9,7 @@
 </script>
 
 <main>
-	<DefaultLayout {pageName}>
+	<DefaultLayout>
 		<svelte:component this={component}/>
 	</DefaultLayout>
 </main>

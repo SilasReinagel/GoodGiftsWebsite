@@ -45,7 +45,8 @@
     align-items: center;
     background-color: var(--primary-background-color);
     padding: 2rem;
-    height: 50vh;
+    min-height: 50vh;
+    overflow: hidden;
   }
 
   .benefit-card {

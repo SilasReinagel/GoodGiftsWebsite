@@ -1,4 +1,8 @@
-<div>
+<script>
+  export let id = '';
+</script>
+
+<div id={id}>
   <slot>Content goes here.</slot>
 </div>
 

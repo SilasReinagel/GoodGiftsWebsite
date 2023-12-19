@@ -1,28 +1,23 @@
 <script>
   export let company;
 
-  import TwoColumnLayout from '../Elements/TwoColumnLayout.svelte';
   import StandardPageLayout from '../Elements/StandardPageLayout.svelte';
+  import Container from '../Elements/Container.svelte';
 </script>
 
-<StandardPageLayout title="Contact Us" headerImg="/images/cafe-01.jpg" headerImgAlt="Cafe">
-  <TwoColumnLayout>
-    <form class="email-form" name="contact" form-name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" slot='first' netlify>
-      <h2 class="center">Contact Us</h2>
-      <hr/>
-      <div hidden aria-hidden="true">
-        <label>
-          Don’t fill this out if you're human:
-          <input name="bot-field" />
-        </label>
-      </div>
-      <input type="hidden" name="form-name" value="contact" />
-      <input type="text" name="name" placeholder="Your Name"/>
-      <input type="email" name="email" placeholder="Your Email Address"/>
-      <textarea name="message" placeholder="Your Message"/>
-      <button type="submit">Send</button>
-    </form>
-  </TwoColumnLayout>
+<StandardPageLayout>
+  <Container>
+    <div class="full-height column">
+      <form class="email-form" name="contact" form-name="contact" method="POST" data-netlify="true">
+        <h2 class="center">Contact Us</h2>
+        <hr/>
+        <input type="text" name="name" placeholder="Your Name"/>
+        <input type="email" name="email" placeholder="Your Email Address"/>
+        <textarea name="message" placeholder="Your Message"/>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </Container>
 </StandardPageLayout>
 
 <style>
@@ -39,6 +34,7 @@
   .email-form {
     display: flex;
     flex-direction: column;
+    width: 100%;
   }
 
   .row {
@@ -80,5 +76,17 @@
     padding: 1em;
     margin: 1em 0;
     min-height: 12em;
+  }
+
+  .column {
+    max-width: 80vw;
+    width: 640px;
+    display: flex;
+    flex-direction: column;
+    margin: 0px 2em;
+  }
+
+  .full-height {
+    min-height: 100vh;
   }
 </style>

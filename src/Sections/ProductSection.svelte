@@ -1,19 +1,22 @@
 <script>
   import Container from "../Elements/Container.svelte";
+    import Lazy from "../Elements/Lazy.svelte";
 import ProductCard from "../Elements/ProductCard.svelte";
 
   import { products } from "../static-content";
 </script>
 
-<Container>
+<Container id="products">
   <div>
     <h1 class="center mt4">Products</h1>
   </div>
-  <section class="product-section">
-    {#each products as product}
-      <ProductCard {product} />
-    {/each}
-  </section>
+  <Lazy height={1024}>
+    <section class="product-section">
+      {#each products as product}
+        <ProductCard {product} />
+      {/each}
+    </section>
+  </Lazy>
 </Container>
 
 <style>
