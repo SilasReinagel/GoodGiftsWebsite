@@ -32,14 +32,14 @@ const site = ({
   
 // { id, name, price, imageUrl, status }
 export const products = [
-  { id: 3, name: 'Einkorn Jumbo Hamburger Buns', price: 32, imageUrl: '/hamburgerbuns.jpg', status: 'Available' },
-  { id: 4, name: 'Artisanal Einkorn Sourdough Boule with Whey', price: 26, imageUrl: '/sourdough.jpg', status: 'New', detailsPage: '/product/einkorn-sourdough-whey' },
-  { id: 2, name: 'Einkorn Vanilla Cake', price: 56, imageUrl: '/cake.jpg', status: 'Available' },
-  { id: 1, name: 'Free-Range Natural Chicken Eggs (Dozen)', price: 18, imageUrl: '/chickenegg.jpg', status: 'Available' },
-  { id: 2, name: 'Free-Range Natural Duck Eggs (Dozen)', price: 24, imageUrl: '/eggs.jpg', status: 'Available' },
+  { id: 3, name: 'Einkorn Jumbo Hamburger Buns', price: 15, imageUrl: '/hamburgerbuns.jpg', status: 'Available' },
+  { id: 4, name: 'Artisanal Einkorn Sourdough Boule with Whey', price: 15, imageUrl: '/sourdough.jpg', status: 'New', detailsPage: '/product/einkorn-sourdough-whey' },
+  { id: 2, name: 'Einkorn Vanilla Cake', price: 36, imageUrl: '/cake.jpg', status: 'Available' },
+  { id: 1, name: 'Free-Range Natural Chicken Eggs (Dozen)', price: 6, imageUrl: '/chickenegg.jpg', status: 'Available' },
+  { id: 2, name: 'Free-Range Natural Duck Eggs (Dozen)', price: 8, imageUrl: '/eggs.jpg', status: 'Available' },
   { id: 3, name: 'Christmas Coffee Blend', price: 18, imageUrl: 'christmascoffee.jpg', status: 'Available' },
   { id: 2, name: 'Limited Edition Christmas Gift Set', price: 92, imageUrl: '/christmasgiftset.jpg', status: 'Available' },
-  { id: 2, name: 'Einkorn Christmas Cookies (6-pack)', price: 24, imageUrl: '/christmascookies.jpg', status: 'Available' },
+  { id: 2, name: 'Einkorn Christmas Cookies (6-pack)', price: 12, imageUrl: '/christmascookies.jpg', status: 'Available' },
   { id: 1, name: 'Tick Repellent Spray (2-pack)', price: 38, imageUrl: '/tickspray.jpg', status: 'Available' },
 ]
 
