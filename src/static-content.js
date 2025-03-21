@@ -31,7 +31,6 @@ const site = ({
 // { id, name, price, imageUrl, status }
 export const products = [
   { id: 3, name: 'Einkorn Jumbo Hamburger Buns', price: 32, imageUrl: '/hamburgerbuns.jpg', status: 'Available' },
-  { id: 1, name: 'Einkorn Sourdough Bread', price: 24, imageUrl: '/sourdough.jpg', status: 'Available' },
   { id: 4, name: 'Artisanal Einkorn Sourdough Boule with Whey', price: 26, imageUrl: '/sourdough.jpg', status: 'New', detailsPage: '/product/einkorn-sourdough-whey' },
   { id: 2, name: 'Einkorn Vanilla Cake', price: 56, imageUrl: '/cake.jpg', status: 'Available' },
   { id: 1, name: 'Free-Range Natural Chicken Eggs (Dozen)', price: 18, imageUrl: '/chickenegg.jpg', status: 'Available' },
