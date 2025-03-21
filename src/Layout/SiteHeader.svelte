@@ -19,7 +19,9 @@
     </a>
     <nav class="navbar tablet-hidden">
       {#each pages as page}
-        <a class="navlink decor-font" href={page.href}>{page.name}</a>
+        {#if page.showInMainNav !== false}
+          <a class="navlink decor-font" href={page.href}>{page.name}</a>
+        {/if}
       {/each}
     </nav>
   </div>

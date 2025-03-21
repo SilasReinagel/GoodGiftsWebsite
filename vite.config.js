@@ -7,4 +7,16 @@ export default defineConfig({
   define: {
     global: {},
   },
+  server: {
+    // Handle SPA routing (redirect 404s to index.html)
+    historyApiFallback: true,
+  },
+  build: {
+    // Add rollup options to ensure SPA routing works in production
+    rollupOptions: {
+      output: {
+        manualChunks: undefined
+      }
+    }
+  }
 })

@@ -1,10 +1,12 @@
 import Home from './Pages/Home.svelte';
 import Contact from './Pages/Contact.svelte';
+import EinkornSourdough from './Pages/EinkornSourdough.svelte';
 
 const DefaultPage = Home;
 export const pages = [
   { path: '/', href: '/', name: 'Home', component: DefaultPage, showInMainNav: true },
-  { path: '/contact', href: '/index.html?page=contact', name: 'Contact', component: Contact, showInMainNav: true },
+  { path: '/contact', href: '/contact', name: 'Contact', component: Contact, showInMainNav: true },
+  { path: '/product/einkorn-sourdough-whey', href: '/product/einkorn-sourdough-whey', name: 'Einkorn Sourdough', component: EinkornSourdough, showInMainNav: false },
 ]
 
 const address = (line1, city, state, zip5, mapLink) => ({ line1, city, state, zip5, mapLink, toString: () => `${line1}, ${city}, ${state}, ${zip5}`});
@@ -30,6 +32,7 @@ const site = ({
 export const products = [
   { id: 3, name: 'Einkorn Jumbo Hamburger Buns', price: 32, imageUrl: '/hamburgerbuns.jpg', status: 'Available' },
   { id: 1, name: 'Einkorn Sourdough Bread', price: 24, imageUrl: '/sourdough.jpg', status: 'Available' },
+  { id: 4, name: 'Artisanal Einkorn Sourdough Boule with Whey', price: 26, imageUrl: '/sourdough.jpg', status: 'New', detailsPage: '/product/einkorn-sourdough-whey' },
   { id: 2, name: 'Einkorn Vanilla Cake', price: 56, imageUrl: '/cake.jpg', status: 'Available' },
   { id: 1, name: 'Free-Range Natural Chicken Eggs (Dozen)', price: 18, imageUrl: '/chickenegg.jpg', status: 'Available' },
   { id: 2, name: 'Free-Range Natural Duck Eggs (Dozen)', price: 24, imageUrl: '/eggs.jpg', status: 'Available' },
