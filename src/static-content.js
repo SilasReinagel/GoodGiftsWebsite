@@ -1,12 +1,14 @@
 import Home from './Pages/Home.svelte';
 import Contact from './Pages/Contact.svelte';
 import EinkornSourdough from './Pages/EinkornSourdough.svelte';
+import Success from './Pages/Success.svelte';
 
 const DefaultPage = Home;
 export const pages = [
   { path: '/', href: '/', name: 'Home', component: DefaultPage, showInMainNav: true },
   { path: '/contact', href: '/contact', name: 'Contact', component: Contact, showInMainNav: true },
   { path: '/product/einkorn-sourdough-whey', href: '/product/einkorn-sourdough-whey', name: 'Einkorn Sourdough', component: EinkornSourdough, showInMainNav: false },
+  { path: '/success', href: '/success', name: 'Success', component: Success, showInMainNav: false },
 ]
 
 const address = (line1, city, state, zip5, mapLink) => ({ line1, city, state, zip5, mapLink, toString: () => `${line1}, ${city}, ${state}, ${zip5}`});

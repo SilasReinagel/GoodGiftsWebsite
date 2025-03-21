@@ -1,6 +1,7 @@
 <script>
 	import DefaultLayout from './Layout/DefaultLayout.svelte';
 	import { pages } from './static-content.js';
+	import site from './static-content.js';
 
   // Get the current path from the URL
   const currentPath = window.location.pathname;
@@ -14,7 +15,7 @@
 </script>
 
 <main>
-	<DefaultLayout>
+	<DefaultLayout company={site}>
 		<svelte:component this={component}/>
 	</DefaultLayout>
 </main>

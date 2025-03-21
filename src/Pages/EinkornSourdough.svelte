@@ -1,45 +1,51 @@
 <script>
   import site from '../static-content.js';
+  import StandardPageLayout from '../Elements/StandardPageLayout.svelte';
+  import Container from '../Elements/Container.svelte';
 </script>
 
-<div class="container">
-  <div class="product-details">
-    <h1>Artisanal Einkorn Sourdough Boule with Whey</h1>
-    
-    <div class="product-content">
-      <div class="product-image">
-        <img src="/sourdough.jpg" alt="Artisanal Einkorn Sourdough Boule with Whey" />
-      </div>
-      
-      <div class="product-description">
-        <p>Delight in the nourishing taste of our Artisanal Einkorn Sourdough Boule, now enriched with the added goodness of whey. Handcrafted using 100% organic Einkorn flour, the world's most ancient wheat, and slowly fermented with a natural sourdough starter, this bread offers a unique combination of flavor, texture, and nutrition. The use of whey enhances the natural tang of the sourdough while providing additional protein and nutrients, making each bite even more satisfying.</p>
-
-        <p>With its crisp, golden crust and soft, airy crumb, this boule is perfect for everyday meals, whether you're making sandwiches, toast, or enjoying it with butter. The use of whey creates an extra light texture and boosts the bread's digestibility, making it a wholesome addition to any table.</p>
-
-        <h2>Why Einkorn and Whey?</h2>
-
-        <p>Einkorn is an ancient grain celebrated for its rich nutrient profile and lower gluten content, while whey brings an extra layer of nutrition with its high protein and essential minerals. This combination results in a bread that's not only delicious but also more nourishing than your typical loaf.</p>
-
-        <p><strong>Ingredients:</strong> Organic Einkorn flour, whey, sea salt, natural sourdough starter.</p>
-
-        <h3>Highlights:</h3>
-        <ul>
-          <li>Made with 100% organic Einkorn flour and whey</li>
-          <li>Naturally leavened with a traditional sourdough starter</li>
-          <li>Whey adds protein, nutrients, and a light texture</li>
-          <li>Lower gluten content for easier digestion</li>
-          <li>No artificial additives or preservatives</li>
-        </ul>
-
-        <p>Savor the timeless tradition of artisanal bread-making with this nutrient-packed, flavorful loaf.</p>
+<StandardPageLayout>
+  <Container>
+    <div class="container">
+      <div class="product-details">
+        <h1>Artisanal Einkorn Sourdough Boule with Whey</h1>
         
-        <div class="cta-container">
-          <a href="/contact" class="cta-button">Order Now</a>
+        <div class="product-content">
+          <div class="product-image">
+            <img src="/sourdough.jpg" alt="Artisanal Einkorn Sourdough Boule with Whey" />
+          </div>
+          
+          <div class="product-description">
+            <p>Delight in the nourishing taste of our Artisanal Einkorn Sourdough Boule, now enriched with the added goodness of whey. Handcrafted using 100% organic Einkorn flour, the world's most ancient wheat, and slowly fermented with a natural sourdough starter, this bread offers a unique combination of flavor, texture, and nutrition. The use of whey enhances the natural tang of the sourdough while providing additional protein and nutrients, making each bite even more satisfying.</p>
+
+            <p>With its crisp, golden crust and soft, airy crumb, this boule is perfect for everyday meals, whether you're making sandwiches, toast, or enjoying it with butter. The use of whey creates an extra light texture and boosts the bread's digestibility, making it a wholesome addition to any table.</p>
+
+            <h2>Why Einkorn and Whey?</h2>
+
+            <p>Einkorn is an ancient grain celebrated for its rich nutrient profile and lower gluten content, while whey brings an extra layer of nutrition with its high protein and essential minerals. This combination results in a bread that's not only delicious but also more nourishing than your typical loaf.</p>
+
+            <p><strong>Ingredients:</strong> Organic Einkorn flour, whey, sea salt, natural sourdough starter.</p>
+
+            <h3>Highlights:</h3>
+            <ul>
+              <li>Made with 100% organic Einkorn flour and whey</li>
+              <li>Naturally leavened with a traditional sourdough starter</li>
+              <li>Whey adds protein, nutrients, and a light texture</li>
+              <li>Lower gluten content for easier digestion</li>
+              <li>No artificial additives or preservatives</li>
+            </ul>
+
+            <p>Savor the timeless tradition of artisanal bread-making with this nutrient-packed, flavorful loaf.</p>
+            
+            <div class="cta-container">
+              <a href="/contact" class="cta-button">Order Now</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
+  </Container>
+</StandardPageLayout>
 
 <style>
   .container {
