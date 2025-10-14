@@ -46,12 +46,32 @@
 </svelte:head>
 
 <div class="storybook-page">
+  <div class="top-bar">
+    <div class="top-bar-content">
+      <div class="top-bar-left">
+        <a href="tel:+16203539735" class="phone-link">
+          📞 <span class="phone-number">(620) 353-9735</span>
+        </a>
+        <span class="location-info">📍 Gravette, AR</span>
+      </div>
+      <a href="https://calendly.com/goodgiftshomestead/storybook-settlement-play-session" class="book-visit-btn" target="_blank" rel="noopener">
+        Book My Visit
+      </a>
+    </div>
+  </div>
+
   <header class="hero-header">
-    <img src="/sbs/SBSLogo.jpg" alt="Storybook Settlement Logo" class="logo" />
-    <p class="tagline">Where imaginations grow, friendships bloom, and playtime comes to life.</p>
-    <p class="subtitle">Ages 1-7 • Gravette, Arkansas • Screen-Free Play</p>
-    <div class="hero-image">
-      <img src="/sbs/playing-village-01.jpg" alt="Children playing in the village" />
+    <div class="hero-content">
+      <div class="hero-left">
+        <div class="business-type">Children's Indoor Playground</div>
+        <img src="/sbs/SBSLogo.jpg" alt="Storybook Settlement Logo" class="logo" />
+        <p class="tagline">Where imaginations grow, friendships bloom, and playtime comes to life.</p>
+        <p class="subtitle">Ages 1-7 • Gravette, Arkansas • Screen-Free Play</p>
+        <a href="#book" class="button button-primary button-hero">Reserve Your Spot Today</a>
+      </div>
+      <div class="hero-right">
+        <img src="/sbs/playing-village-01.jpg" alt="Children playing in the village" class="hero-image" />
+      </div>
     </div>
   </header>
 
@@ -75,11 +95,8 @@
     <section id="about">
       <h2>Welcome to Storybook Settlement</h2>
       <p class="lead">
-        Nestled in the countryside near Gravette, Arkansas, Storybook Settlement is a handcrafted indoor play village designed for screen-free, imaginative fun. With themed storefronts that rotate seasonally, your children can explore, pretend, and create in a safe and engaging environment. It's a place where families connect and creativity takes the lead.
+        Nestled in the countryside near Gravette, Arkansas, <strong>Storybook Settlement is a children's indoor playground</strong> — a handcrafted play village designed for screen-free, imaginative fun. With themed storefronts that rotate seasonally, your children can explore, pretend, and create in a safe and engaging environment. It's a place where families connect and creativity takes the lead.
       </p>
-      <div class="cta-inline">
-        <a href="#book" class="button button-primary">Reserve Your Spot</a>
-      </div>
     </section>
 
     <section id="sessions">
@@ -178,20 +195,168 @@
     color: #3b2e2a;
     min-height: 100vh;
   }
+
+  /* Top Bar */
+  .top-bar {
+    background: linear-gradient(135deg, #d65a31 0%, #bf4a21 100%);
+    padding: 0.75rem 2rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    position: sticky;
+    top: 0;
+    z-index: 1001;
+  }
+
+  .top-bar-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .top-bar-left {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .phone-link {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.05rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+  }
+
+  .phone-link:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+
+  .phone-number {
+    font-family: 'Quicksand', sans-serif;
+  }
+
+  .location-info {
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    white-space: nowrap;
+  }
+
+  .book-visit-btn {
+    background-color: white;
+    color: #d65a31;
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.15rem;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+  }
+
+  .book-visit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+    background-color: #fff9f4;
+  }
+
+  @media (max-width: 768px) {
+    .top-bar-left {
+      gap: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .location-info {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .top-bar {
+      padding: 0.75rem 1rem;
+    }
+
+    .top-bar-content {
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .top-bar-left {
+      flex-direction: column;
+      gap: 0.5rem;
+      align-items: center;
+      width: 100%;
+    }
+
+    .phone-link {
+      font-size: 1rem;
+    }
+
+    .location-info {
+      font-size: 0.9rem;
+    }
+
+    .book-visit-btn {
+      padding: 0.65rem 1.5rem;
+      font-size: 1rem;
+      width: 100%;
+      text-align: center;
+    }
+  }
   
   /* Hero Header */
   .hero-header {
     background-color: #e2d1b3;
     padding: 2rem;
-    text-align: center;
     border-bottom: 4px dashed #ff9f9f;
+    min-height: calc(100vh - 80px);
+    max-height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-content {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .hero-left {
+    text-align: center;
+  }
+
+  .business-type {
+    display: inline-block;
+    background-color: #d65a31;
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 8px rgba(214, 90, 49, 0.3);
   }
   
   .logo {
-    width: 300px;
+    width: 240px;
     max-width: 90%;
     height: auto;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     animation: fadeIn 1s ease-in;
   }
   
@@ -199,36 +364,114 @@
     font-size: 1.3rem;
     font-style: italic;
     color: #5a3d2f;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.5;
   }
 
   .subtitle {
     font-size: 1rem;
     font-weight: 600;
     color: #d65a31;
-    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-right {
+    margin-top: 2rem;
   }
 
   .hero-image {
-    margin: 2rem auto 0;
-    max-width: 800px;
-  }
-
-  .hero-image img {
     width: 100%;
     height: auto;
     border-radius: 16px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.25);
+  }
+
+  .button-hero {
+    margin-top: 0.5rem;
+  }
+
+  /* Desktop Hero Layout - Side by Side */
+  @media (min-width: 1024px) {
+    .hero-header {
+      padding: 3rem 2rem;
+    }
+
+    .hero-content {
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+    }
+
+    .hero-left {
+      flex: 1;
+      text-align: left;
+      max-width: 550px;
+    }
+
+    .hero-right {
+      flex: 1;
+      margin-top: 0;
+    }
+
+    .business-type {
+      font-size: 1rem;
+      padding: 0.6rem 1.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .logo {
+      width: 280px;
+      margin-bottom: 2rem;
+    }
+
+    .tagline {
+      font-size: 1.8rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .subtitle {
+      font-size: 1.15rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero-image {
+      border-radius: 20px;
+      box-shadow: 0 16px 48px rgba(0,0,0,0.3);
+    }
+  }
+
+  @media (min-width: 1400px) {
+    .hero-left {
+      max-width: 600px;
+    }
+
+    .logo {
+      width: 320px;
+    }
+
+    .tagline {
+      font-size: 2rem;
+    }
+
+    .subtitle {
+      font-size: 1.25rem;
+    }
   }
 
   /* Sticky Navigation */
   .sticky-nav {
     position: sticky;
-    top: 0;
+    top: 56px;
     background-color: #e2d1b3;
     border-bottom: 3px solid #ff9f9f;
-    z-index: 1000;
+    z-index: 999;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  @media (max-width: 640px) {
+    .sticky-nav {
+      top: 140px;
+    }
   }
   
   .sticky-nav ul {
@@ -360,6 +603,17 @@
     line-height: 2;
   }
 
+  /* Contact Links */
+  #contact a {
+    color: #2d1810;
+    font-weight: 600;
+    text-decoration: underline;
+  }
+
+  #contact a:hover {
+    color: #d65a31;
+  }
+
   /* Buttons */
   .button {
     background-color: #fd8b71;
@@ -434,15 +688,18 @@
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1.5rem;
     margin-top: 2rem;
+    padding: 1rem 0;
   }
 
   .gallery-item {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
   }
 
   .gallery-item:hover {
-    transform: translateY(-8px);
+    transform: translateY(-8px) scale(1.02);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    z-index: 10;
   }
 
   .gallery-item :global(img) {
@@ -450,6 +707,11 @@
     height: auto;
     display: block;
     border-radius: 12px;
+    transition: transform 0.3s ease;
+  }
+
+  .gallery-item:hover :global(img) {
+    transform: scale(1.05);
   }
 
   /* Back to Top Button */
