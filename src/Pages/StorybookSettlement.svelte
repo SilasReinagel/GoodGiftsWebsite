@@ -1,6 +1,42 @@
 <script>
   import Container from '../Elements/Container.svelte';
-    import Image from '../Elements/Image.svelte';
+  import Image from '../Elements/Image.svelte';
+  import { onMount } from 'svelte';
+  
+  let mobileMenuOpen = false;
+  let activeSection = 'about';
+  let showBackToTop = false;
+
+  function toggleMobileMenu() {
+    mobileMenuOpen = !mobileMenuOpen;
+  }
+
+  function handleScroll() {
+    // Show back to top button after scrolling 300px
+    showBackToTop = window.scrollY > 300;
+    
+    // Update active section based on scroll position
+    const sections = ['about', 'sessions', 'photos', 'book', 'faq', 'contact'];
+    for (const section of sections) {
+      const element = document.getElementById(section);
+      if (element) {
+        const rect = element.getBoundingClientRect();
+        if (rect.top <= 150 && rect.bottom >= 150) {
+          activeSection = section;
+          break;
+        }
+      }
+    }
+  }
+
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  onMount(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  });
 </script>
 
 <svelte:head>
@@ -10,41 +46,56 @@
 </svelte:head>
 
 <div class="storybook-page">
-  <header>
+  <header class="hero-header">
     <img src="/sbs/SBSLogo.jpg" alt="Storybook Settlement Logo" class="logo" />
     <p class="tagline">Where imaginations grow, friendships bloom, and playtime comes to life.</p>
-    <nav>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#sessions">Sessions</a></li>
-        <li><a href="#photos">Gallery</a></li>
-        <li><a href="#book">Book</a></li>
-        <li><a href="#faq">FAQ</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+    <p class="subtitle">Ages 1-7 • Gravette, Arkansas • Screen-Free Play</p>
+    <div class="hero-image">
+      <img src="/sbs/playing-village-01.jpg" alt="Children playing in the village" />
+    </div>
   </header>
+
+  <nav class="sticky-nav" class:mobile-open={mobileMenuOpen}>
+    <button class="hamburger" on:click={toggleMobileMenu} aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul class:show={mobileMenuOpen}>
+      <li><a href="#about" class:active={activeSection === 'about'} on:click={() => mobileMenuOpen = false}>About</a></li>
+      <li><a href="#sessions" class:active={activeSection === 'sessions'} on:click={() => mobileMenuOpen = false}>Sessions</a></li>
+      <li><a href="#photos" class:active={activeSection === 'photos'} on:click={() => mobileMenuOpen = false}>Gallery</a></li>
+      <li><a href="#book" class:active={activeSection === 'book'} on:click={() => mobileMenuOpen = false}>Book</a></li>
+      <li><a href="#faq" class:active={activeSection === 'faq'} on:click={() => mobileMenuOpen = false}>FAQ</a></li>
+      <li><a href="#contact" class:active={activeSection === 'contact'} on:click={() => mobileMenuOpen = false}>Contact</a></li>
+    </ul>
+  </nav>
 
   <Container>
     <section id="about">
       <h2>Welcome to Storybook Settlement</h2>
-      <p>
+      <p class="lead">
         Nestled in the countryside near Gravette, Arkansas, Storybook Settlement is a handcrafted indoor play village designed for screen-free, imaginative fun. With themed storefronts that rotate seasonally, your children can explore, pretend, and create in a safe and engaging environment. It's a place where families connect and creativity takes the lead.
       </p>
-      <img src="/sbs/playing-village-01.jpg" alt="Children playing in the village" style="border-radius:12px; max-width:600px;">
+      <div class="cta-inline">
+        <a href="#book" class="button button-primary">Reserve Your Spot</a>
+      </div>
     </section>
 
     <section id="sessions">
       <h2>Sessions & Pricing</h2>
-      <ul>
+      <ul class="info-list">
         <li><strong>Play Sessions:</strong> Tuesday - 10:00-11:30am, Friday - 3:30-5:00pm</li>
         <li><strong>Age Range:</strong> Ideal for ages 1–7 (siblings welcome)</li>
         <li><strong>Cost:</strong> $5 per child, $15 max per family (infants under 12 months are free with siblings)</li>
         <li><strong>Max Capacity:</strong> 10 children per session</li>
       </ul>
-      <p>
-        Reserve your spot in advance to ensure availability.
-      </p>
+      <div class="scarcity-notice">
+        ⚠️ <strong>Limited Availability:</strong> Only 10 spots per session - Book early to secure your spot!
+      </div>
+      <div class="cta-inline">
+        <a href="https://calendly.com/goodgiftshomestead/storybook-settlement-play-session" class="button button-primary" target="_blank" rel="noopener">Book Your Session Now</a>
+      </div>
     </section>
 
     <section id="photos">
@@ -60,26 +111,31 @@
       </ul>
       <div class="gallery">
         <div class="gallery-item">
-          <Image src="/sbs/fire-station-01.jpg" alt="Fire Station storefront" />
+          <Image src="/sbs/fire-station-01.jpg" alt="Fire Station storefront" width={400} />
         </div>
         <div class="gallery-item">
-          <Image src="/sbs/ice-cream-01.jpg" alt="Ice Cream Parlor storefront" />
+          <Image src="/sbs/ice-cream-01.jpg" alt="Ice Cream Parlor storefront" width={400} />
         </div>
         <div class="gallery-item">
-          <Image src="/sbs/vet-01.jpeg" alt="Animal Hospital storefront" />
+          <Image src="/sbs/vet-01.jpeg" alt="Animal Hospital storefront" width={400} />
         </div>
         <div class="gallery-item">
-          <Image src="/sbs/police-station-01.jpg" alt="Police Station storefront" />
+          <Image src="/sbs/police-station-01.jpg" alt="Police Station storefront" width={400} />
         </div>
       </div>
     </section>
 
-    <section id="book">
+    <section id="book" class="book-section">
       <h2>Book a Session</h2>
       <p>
         Click the button below to reserve your child's spot through our online booking system. Each child attending must have their own booking submission.
       </p>
-      <p><a href="https://calendly.com/goodgiftshomestead/storybook-settlement-play-session" class="button" target="_blank" rel="noopener">Book Now</a></p>
+      <div class="scarcity-notice">
+        ⏰ <strong>Reserve Early:</strong> Sessions fill quickly! Only 10 children per session.
+      </div>
+      <div class="cta-center">
+        <a href="https://calendly.com/goodgiftshomestead/storybook-settlement-play-session" class="button button-primary button-large" target="_blank" rel="noopener">Book Now</a>
+      </div>
     </section>
 
     <section id="faq">
@@ -104,6 +160,12 @@
     </section>
   </Container>
 
+  {#if showBackToTop}
+    <button class="back-to-top" on:click={scrollToTop} aria-label="Back to top">
+      ↑
+    </button>
+  {/if}
+
   <footer>
     <p>&copy; 2025 Storybook Settlement. A branch of Good Gifts Homestead.</p>
   </footer>
@@ -117,7 +179,8 @@
     min-height: 100vh;
   }
   
-  header {
+  /* Hero Header */
+  .hero-header {
     background-color: #e2d1b3;
     padding: 2rem;
     text-align: center;
@@ -129,96 +192,257 @@
     max-width: 90%;
     height: auto;
     margin-bottom: 1rem;
+    animation: fadeIn 1s ease-in;
   }
   
   .tagline {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-style: italic;
-    color: #6b4c3b;
+    color: #5a3d2f;
+    margin-bottom: 0.5rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #d65a31;
+    margin-top: 0.5rem;
+  }
+
+  .hero-image {
+    margin: 2rem auto 0;
+    max-width: 800px;
+  }
+
+  .hero-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  }
+
+  /* Sticky Navigation */
+  .sticky-nav {
+    position: sticky;
+    top: 0;
+    background-color: #e2d1b3;
+    border-bottom: 3px solid #ff9f9f;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   }
   
-  nav ul {
+  .sticky-nav ul {
     display: flex;
     justify-content: center;
     list-style-type: none;
-    padding: 0;
+    padding: 1rem 0;
+    margin: 0;
+    transition: all 0.3s ease;
   }
   
-  nav li {
-    margin: 0 1rem;
+  .sticky-nav li {
+    margin: 0 1.5rem;
   }
   
-  nav a {
+  .sticky-nav a {
     color: #d65a31;
     text-decoration: none;
     font-family: 'Quicksand', sans-serif;
     font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .sticky-nav a:hover {
+    background-color: rgba(253, 139, 113, 0.2);
+  }
+
+  .sticky-nav a.active {
+    background-color: #fd8b71;
+    color: white;
+  }
+
+  .sticky-nav a:focus {
+    outline: 2px solid #d65a31;
+    outline-offset: 2px;
+  }
+
+  /* Hamburger Menu */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 1rem;
+    z-index: 1001;
+  }
+
+  .hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #d65a31;
+    margin: 3px 0;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+  }
+
+  @media (max-width: 768px) {
+    .hamburger {
+      display: flex;
+    }
+
+    .sticky-nav ul {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: #e2d1b3;
+      padding: 1rem 0;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .sticky-nav ul.show {
+      display: flex;
+    }
+
+    .sticky-nav li {
+      margin: 0.5rem 0;
+    }
+
+    .sticky-nav a {
+      display: block;
+      padding: 1rem;
+    }
   }
   
+  /* Sections */
   section {
-    padding: 2rem;
+    padding: 3rem 2rem;
+    animation: fadeIn 0.8s ease-in;
+  }
+
+  section:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.4);
   }
   
   h2 {
     font-family: 'Merriweather', serif;
     color: #bf6a40;
-    font-size: 2rem;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  h3 {
+    font-family: 'Merriweather', serif;
+    color: #bf6a40;
+    font-size: 1.4rem;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .lead {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #3b2e2a;
   }
   
   ul {
     padding-left: 1.5rem;
   }
-  
+
+  .info-list {
+    font-size: 1.05rem;
+    line-height: 2;
+  }
+
+  /* Buttons */
   .button {
     background-color: #fd8b71;
     color: white;
-    padding: 0.75rem 1.5rem;
+    padding: 1rem 2rem;
     border: none;
     border-radius: 12px;
-    font-size: 1.1rem;
+    font-size: 1.15rem;
+    font-weight: 700;
     text-decoration: none;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-    transition: transform 0.2s ease;
+    box-shadow: 0 4px 12px rgba(253, 139, 113, 0.4);
+    transition: all 0.3s ease;
     display: inline-block;
+    cursor: pointer;
   }
   
   .button:hover {
-    transform: scale(1.05);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(253, 139, 113, 0.5);
+    background-color: #ff7557;
+  }
+
+  .button:focus {
+    outline: 3px solid #d65a31;
+    outline-offset: 3px;
+  }
+
+  .button-primary {
+    background-color: #d65a31;
+    font-size: 1.2rem;
+  }
+
+  .button-primary:hover {
+    background-color: #bf4a21;
+  }
+
+  .button-large {
+    padding: 1.25rem 3rem;
+    font-size: 1.4rem;
+  }
+
+  .cta-inline {
+    margin: 2rem 0;
+  }
+
+  .cta-center {
+    text-align: center;
+    margin: 2.5rem 0;
+  }
+
+  /* Scarcity Notice */
+  .scarcity-notice {
+    background-color: #fff5e6;
+    border-left: 4px solid #ff9f9f;
+    padding: 1rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 8px;
+    font-size: 1.05rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  .book-section {
+    background: linear-gradient(135deg, rgba(253, 139, 113, 0.1), rgba(242, 215, 182, 0.2));
+    border-radius: 16px;
+    padding: 3rem;
+    text-align: center;
   }
   
+  /* Gallery */
   .gallery {
-    column-count: 4;
-    column-gap: 1rem;
-    margin-top: 1.5rem;
-  }
-
-  @media (max-width: 1200px) {
-    .gallery {
-      column-count: 3;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .gallery {
-      column-count: 2;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .gallery {
-      column-count: 1;
-    }
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
   }
 
   .gallery-item {
-    break-inside: avoid;
-    margin-bottom: 1rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
 
   .gallery-item:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
   }
 
   .gallery-item :global(img) {
@@ -227,12 +451,96 @@
     display: block;
     border-radius: 12px;
   }
+
+  /* Back to Top Button */
+  .back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: #d65a31;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    z-index: 999;
+    animation: fadeIn 0.3s ease-in;
+  }
+
+  .back-to-top:hover {
+    background-color: #bf4a21;
+    transform: translateY(-4px);
+  }
+
+  .back-to-top:focus {
+    outline: 3px solid #d65a31;
+    outline-offset: 3px;
+  }
     
+  /* Footer */
   footer {
     text-align: center;
     background-color: #f2d7b6;
-    padding: 1rem;
-    margin-top: 2rem;
+    padding: 2rem;
+    margin-top: 3rem;
+    border-top: 4px dashed #ff9f9f;
+  }
+
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    h2 {
+      font-size: 2rem;
+    }
+
+    section {
+      padding: 2rem 1rem;
+    }
+
+    .button-large {
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+    }
+
+    .book-section {
+      padding: 2rem 1.5rem;
+    }
+
+    .back-to-top {
+      bottom: 1rem;
+      right: 1rem;
+      width: 45px;
+      height: 45px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .tagline {
+      font-size: 1.1rem;
+    }
+
+    .subtitle {
+      font-size: 0.9rem;
+    }
+
+    h2 {
+      font-size: 1.75rem;
+    }
   }
 </style>
 
