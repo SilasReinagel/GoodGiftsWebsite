@@ -2,11 +2,13 @@ import Home from './Pages/Home.svelte';
 import Contact from './Pages/Contact.svelte';
 import EinkornSourdough from './Pages/EinkornSourdough.svelte';
 import Success from './Pages/Success.svelte';
+import StorybookSettlement from './Pages/StorybookSettlement.svelte';
 
 const DefaultPage = Home;
 export const pages = [
   { path: '/', href: '/', name: 'Home', component: DefaultPage, showInMainNav: true },
   { path: '/contact', href: '/contact', name: 'Contact', component: Contact, showInMainNav: true },
+  { path: '/storybook_settlement', href: '/storybook_settlement', name: 'Storybook Settlement', component: StorybookSettlement, showInMainNav: false, useLayout: false },
   { path: '/product/einkorn-sourdough-whey', href: '/product/einkorn-sourdough-whey', name: 'Einkorn Sourdough', component: EinkornSourdough, showInMainNav: false },
   { path: '/success', href: '/success', name: 'Success', component: Success, showInMainNav: false },
 ]

@@ -10,14 +10,20 @@
   const matchingRoutes = pages.filter(r => r.path === currentPath);
   
   // Default to home page if no route matches
-  const component = matchingRoutes.length > 0 ? matchingRoutes[0].component : pages[0].component;
-  const pageName = matchingRoutes.length > 0 ? matchingRoutes[0].name : pages[0].name;
+  const currentRoute = matchingRoutes.length > 0 ? matchingRoutes[0] : pages[0];
+  const component = currentRoute.component;
+  const pageName = currentRoute.name;
+  const useLayout = currentRoute.useLayout !== false; // Default to true if not specified
 </script>
 
 <main>
-	<DefaultLayout company={site}>
+	{#if useLayout}
+		<DefaultLayout company={site}>
+			<svelte:component this={component}/>
+		</DefaultLayout>
+	{:else}
 		<svelte:component this={component}/>
-	</DefaultLayout>
+	{/if}
 </main>
 
 <style>
